@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Roadmap to a Career in Cybersecurity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Slate & Sky Blue -->
+    <!-- Application Structure Plan: The application is structured into four distinct, thematic sections (Pillars, Platforms, Certifications, Roadmap) accessible via a persistent top navigation bar for non-linear exploration. This is superior to the report's linear format for a web experience, allowing users to jump to content that interests them most. The 'Pillars' section uses clickable cards to reveal detailed information, preventing initial overload. The 'Platforms' section features a dynamic filtering system, enabling users to find relevant learning resources based on their skill level and interest (Offense/Defense). This interactive, task-oriented design enhances usability and engagement for aspiring cybersecurity students. -->
+    <!-- Visualization & Content Choices: Report Info: Four Pillars of Cyber -> Goal: Compare roles -> Method: Interactive cards in a 2x2 grid. Interaction: Click to expand details. Justification: Encourages exploration without a wall of text. | Report Info: Learning Platforms -> Goal: Organize/Filter resources -> Method: Filterable card grid. Interaction: JS-powered buttons to filter by category. Justification: Personalized user experience. | Report Info: 3-Step Roadmap -> Goal: Show a clear process -> Method: Visually distinct numbered steps (HTML/Tailwind diagram). Justification: Enhances clarity and retention. No quantitative data was present, so no charts were used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        .pillar-card-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .pillar-card.active .pillar-card-details {
+            max-height: 500px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .platform-card {
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            will-change: opacity, transform;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-sky-600">Cyber Career Roadmap</h1>
+            <div class="hidden md:flex space-x-6 text-slate-600">
+                <a href="#pillars" class="hover:text-sky-600 transition-colors">Career Pillars</a>
+                <a href="#platforms" class="hover:text-sky-600 transition-colors">Learning Platforms</a>
+                <a href="#certs" class="hover:text-sky-600 transition-colors">Certifications</a>
+                <a href="#roadmap" class="hover:text-sky-600 transition-colors">Your Roadmap</a>
+            </div>
+            <div class="md:hidden">
+                <select id="mobile-nav" class="bg-slate-100 border border-slate-300 rounded-md p-2 text-slate-700">
+                    <option value="#hero">Home</option>
+                    <option value="#pillars">Pillars</option>
+                    <option value="#platforms">Platforms</option>
+                    <option value="#certs">Certs</option>
+                    <option value="#roadmap">Roadmap</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-16">
+
+        <section id="hero" class="text-center mb-16 md:mb-24">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">Your Journey to a Cybersecurity Career Starts Here</h2>
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+                Welcome to the digital front lines. This guide provides a clear, no-nonsense roadmap to becoming a cybersecurity professional. Explore the main roles, discover essential hands-on learning platforms, and follow a simple plan to land your first job in this high-demand field.
+            </p>
+        </section>
+
+        <section id="pillars" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">The Four Pillars of Cybersecurity</h3>
+                <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">Every cybersecurity role fits into one of four main teams. Understanding them helps you find your place. Click on any pillar to learn more about the roles, responsibilities, and entry-level jobs available.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="pillar-card bg-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-2xl font-bold text-sky-700">🛡️ Defense (Blue Team)</h4>
+                        <span class="text-2xl transform transition-transform duration-300 arrow">▼</span>
+                    </div>
+                    <div class="pillar-card-details">
+                        <p class="text-slate-600 mt-2">The Blue Team are the **guardians**. Their job is to protect an organization's digital assets by building and defending the fortress.</p>
+                        <div class="mt-4">
+                            <strong class="text-slate-700 block">What they do:</strong>
+                            <p class="text-slate-600">Monitor networks for intruders, manage firewalls, respond to security alerts, and ensure all systems are secure.</p>
+                        </div>
+                        <div class="mt-4">
+                            <strong class="text-slate-700 block">Entry-Level Jobs:</strong>
+                            <p class="text-slate-600">SOC Analyst, Cybersecurity Analyst.</p>
+                        </div>
+                        <div class="mt-4">
+                            <strong class="text-slate-700 block">Think of them as:</strong>
+                            <p class="text-slate-600 italic">The guards on the castle walls, watching for any sign of trouble.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-card bg-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-2xl font-bold text-red-700">🎯 Offense (Red Team)</h4>
+                        <span class="text-2xl transform transition-transform duration-300 arrow">▼</span>
+                    </div>
+                    <div class="pillar-card-details">
+                        <p class="text-slate-600 mt-2">The Red Team are the ethical **attackers**. They are hired to act like real hackers to find weaknesses before criminals do.</p>
+                        <div class="mt-4">
+                            <strong class="text-slate-700 block">What they do:</strong>
+                            <p class="text-slate-600">Conduct penetration tests, try to trick employees through social engineering, and test the fortress's defenses.</p>
+                        </div>
+                         <div class="mt-4">
+                            <strong class="text-slate-700 block">Entry-Level Jobs:</strong>
+                            <p class="text-slate-600">Junior Penetration Tester.</p>
+                        </div>
+                        <div class="mt-4">
+                            <strong class="text-slate-700 block">Think of them as:</strong>
+                            <p class="text-slate-600 italic">A special team hired to test the castle's defenses—checking for unlocked doors or weak walls.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-card bg-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-2xl font-bold text-amber-700">🕵️ Digital Forensics</h4>
+                        <span class="text-2xl transform transition-transform duration-300 arrow">▼</span>
+                    </div>
+                    <div class="pillar-card-details">
+                        <p class="text-slate-600 mt-2">Forensics experts are the **detectives**. When a breach happens, they investigate the digital crime scene to figure out what happened.</p>
+                        <div class="mt-4">
+                            <strong class="text-slate-700 block">What they do:</strong>
+                            <p class="text-slate-600">Recover data, analyze malware, and trace an attacker's footsteps to understand the damage and prevent future incidents.</p>
+                        </div>
+                         <div class="mt-4">
+                            <strong class="text-slate-700 block">Entry-Level Jobs:</strong>
+                            <p class="text-slate-600">Incident Response Analyst, Forensics Investigator.</p>
+                        </div>
+                        <div class="mt-4">
+                            <strong class="text-slate-700 block">Think of them as:</strong>
+                            <p class="text-slate-600 italic">The crime scene investigators who arrive after a break-in to find out how the thief got in.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-card bg-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-2xl font-bold text-indigo-700">🏛️ Governance, Risk & Compliance</h4>
+                        <span class="text-2xl transform transition-transform duration-300 arrow">▼</span>
+                    </div>
+                    <div class="pillar-card-details">
+                        <p class="text-slate-600 mt-2">GRC professionals are the **strategists and lawmakers**. They create the security framework and ensure the organization plays by the rules.</p>
+                        <div class="mt-4">
+                            <strong class="text-slate-700 block">What they do:</strong>
+                            <p class="text-slate-600">Write security policies, perform risk assessments, and ensure compliance with industry regulations and laws like GDPR or HIPAA.</p>
+                        </div>
+                         <div class="mt-4">
+                            <strong class="text-slate-700 block">Entry-Level Jobs:</strong>
+                            <p class="text-slate-600">GRC Analyst, IT Auditor.</p>
+                        </div>
+                        <div class="mt-4">
+                            <strong class="text-slate-700 block">Think of them as:</strong>
+                            <p class="text-slate-600 italic">The architects and lawyers who design the castle's blueprints and write the kingdom's laws.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="platforms" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Build Your Toolkit: Hands-On Platforms</h3>
+                <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">College teaches theory, but cybersecurity is a practical skill. These platforms provide the hands-on experience employers are looking for. Use the filters to find the best platforms for your current level and interests.</p>
+            </div>
+            <div id="platform-filters" class="flex justify-center flex-wrap gap-2 mb-8">
+                <button data-filter="all" class="filter-btn bg-sky-600 text-white px-4 py-2 rounded-full">All</button>
+                <button data-filter="beginner" class="filter-btn bg-white text-slate-700 px-4 py-2 rounded-full border border-slate-300 hover:bg-slate-100">Beginner</button>
+                <button data-filter="defensive" class="filter-btn bg-white text-slate-700 px-4 py-2 rounded-full border border-slate-300 hover:bg-slate-100">Defensive Skills</button>
+                <button data-filter="offensive" class="filter-btn bg-white text-slate-700 px-4 py-2 rounded-full border border-slate-300 hover:bg-slate-100">Offensive Skills</button>
+            </div>
+            <div id="platform-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+        </section>
+
+        <section id="certs" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Prove Your Knowledge: Key Certifications</h3>
+                <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">Certifications are how you prove to employers that you have a foundational level of knowledge. For entry-level roles, these are the two most important names to know.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200">
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3">CompTIA Security+</h4>
+                    <p class="text-slate-600">This is the **gold standard entry-level certification**. It covers the fundamental principles of network security and risk management. It's a multiple-choice exam, but it is globally recognized and respected by virtually all employers as the baseline for a security professional.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200">
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3">EC-Council CEH</h4>
+                    <p class="text-slate-600">The Certified Ethical Hacker (CEH) is one of the most well-known certifications, famous for getting your resume past HR filters, especially for government and corporate jobs. While it started as a multiple-choice exam, the **CEH (Practical)** is now available to prove your hands-on skills.</p>
+                </div>
+            </div>
+             <div class="mt-8 bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-6 rounded-r-lg">
+                <h4 class="font-bold text-xl">The Golden Combination</h4>
+                <p class="mt-2">Use platforms like **TryHackMe** to build real, practical skills. Then, use that foundational knowledge to study for and pass your **Security+** exam. This combination of proven hands-on ability and a recognized certification makes you an incredibly strong candidate for your first job.</p>
+            </div>
+        </section>
+
+        <section id="roadmap">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Your 3-Step Roadmap to Getting Hired</h3>
+                <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">Feeling overwhelmed? Don't be. Follow this simple, three-step plan to go from student to a hireable cybersecurity professional. This is your direct path to a new career.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200">
+                    <div class="text-5xl font-extrabold text-sky-500 mb-4">1</div>
+                    <h4 class="text-2xl font-bold mb-2">Build Your Foundation</h4>
+                    <p class="text-slate-600">Focus on your college classes in Networking and Operating Systems (especially Linux). You can't defend a network if you don't know how it works. Then, sign up for **TryHackMe** and make it your personal skills gym.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200">
+                    <div class="text-5xl font-extrabold text-sky-500 mb-4">2</div>
+                    <h4 class="text-2xl font-bold mb-2">Get Certified</h4>
+                    <p class="text-slate-600">With hands-on basics from practice platforms, start studying for the **CompTIA Security+**. Use free resources like Professor Messer on YouTube. Your goal is to get this certification before you graduate.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200">
+                    <div class="text-5xl font-extrabold text-sky-500 mb-4">3</div>
+                    <h4 class="text-2xl font-bold mb-2">Specialize & Practice</h4>
+                    <p class="text-slate-600">Once you have the basics, dive deeper. Want to be a defender? Use **LetsDefend**. Drawn to hacking? Start doing challenges on **Hack The Box**. This demonstrates the initiative and passion that employers love.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-10 border-t mt-16 md:mt-24">
+        <p class="text-slate-600">This field isn't about being a genius; it's about being persistent, curious, and passionate about learning.</p>
+        <p class="text-slate-500 mt-2 text-sm">Your journey starts now.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pillarCards = document.querySelectorAll('.pillar-card');
+            pillarCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('active');
+                    const arrow = card.querySelector('.arrow');
+                    arrow.style.transform = card.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                });
+            });
+
+            const platforms = [
+                { name: 'TryHackMe', desc: 'The #1 place to start. It uses gamified "rooms" to teach concepts step-by-step. Perfect for absolute beginners.', tags: ['beginner', 'defensive', 'offensive'] },
+                { name: 'LetsDefend', desc: 'This platform simulates being a real SOC Analyst. You investigate fake security alerts, just like in a real job.', tags: ['defensive'] },
+                { name: 'Security Blue Team (BTLO)', desc: 'Offers fantastic hands-on labs for forensics and incident response. Home of the BTL1 certification.', tags: ['defensive'] },
+                { name: 'Hack The Box (HTB)', desc: 'Once you\'re comfortable with the basics, you graduate to HTB. It’s much more challenging and less guided.', tags: ['offensive'] },
+                { name: 'Offensive Security (OffSec)', desc: 'The gold standard for offensive security. Their OSCP certification is one of the most respected and difficult in the industry.', tags: ['offensive'] }
+            ];
+
+            const platformGrid = document.getElementById('platform-grid');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            const renderPlatforms = (filter = 'all') => {
+                platformGrid.innerHTML = '';
+                const filteredPlatforms = filter === 'all' 
+                    ? platforms 
+                    : platforms.filter(p => p.tags.includes(filter));
+
+                filteredPlatforms.forEach(platform => {
+                    const card = document.createElement('div');
+                    card.className = 'platform-card bg-white p-6 rounded-xl shadow-md border border-slate-200 opacity-0 transform translate-y-2';
+                    card.innerHTML = `
+                        <h4 class="text-xl font-bold mb-2">${platform.name}</h4>
+                        <p class="text-slate-600">${platform.desc}</p>
+                    `;
+                    platformGrid.appendChild(card);
+                    
+                    setTimeout(() => {
+                        card.classList.remove('opacity-0', 'translate-y-2');
+                    }, 50);
+                });
+            };
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-sky-600', 'text-white');
+                        b.classList.add('bg-white', 'text-slate-700');
+                    });
+                    btn.classList.add('bg-sky-600', 'text-white');
+                    btn.classList.remove('bg-white', 'text-slate-700');
+                    renderPlatforms(filter);
+                });
+            });
+            
+            renderPlatforms();
+
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.addEventListener('change', (e) => {
+                const targetId = e.target.value;
+                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
